@@ -1,0 +1,18 @@
+# environments
+.venv/
+__pycache__/
+*.pyc
+
+# secrets
+.env
+
+# cached on-chain data (re-fetched on first run; never committed)
+
+data/*.json
+
+
+# jupyter
+.ipynb_checkpoints/
+
+# committed on purpose: assets/*.png (so charts render in the README without running),
+# and the executed notebooks/*.ipynb (so GitHub shows the output inline).
