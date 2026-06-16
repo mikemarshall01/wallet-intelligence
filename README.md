@@ -8,6 +8,17 @@ and how concentrated that activity is. Written to be read as much as run.
 Built on a **free, keyless public JSON-RPC** endpoint with **no API key required**. Part of a
 wider crypto-quant handbook; this is the on-chain data-engineering repo.
 
+## About
+
+This notebook began as my own notes while I taught myself on-chain data engineering, reading
+Ethereum directly off the chain and decoding ERC-20 transfer events from their ABI. I have
+tidied and organised it and put it online freely, in the hope that it is useful to others
+working through the same concepts. The emphasis is on explaining the ideas clearly, on free
+and public data. This is educational and illustrative work rather than production code or
+formal research, and any figures are there to illustrate the method rather than to report
+results. It is freely available under the MIT licence. Feedback and corrections are welcome.
+Provided as is, for educational use, with no warranty.
+
 ---
 
 ## What you will learn
@@ -76,6 +87,10 @@ jupyter notebook notebooks/01_wallet_intelligence.ipynb
 jupytext --to notebook notebooks/01_wallet_intelligence.py
 jupyter nbconvert --to notebook --execute --inplace notebooks/01_wallet_intelligence.ipynb
 ```
+
+### Optional Etherscan key
+
+This runs **keyless** on a free public JSON-RPC endpoint. An `ETHERSCAN_API_KEY` is read but not required anywhere: it would let you fetch verified ABIs or longer history, but the ERC-20 `Transfer` event signature is a fixed standard, so the repo decodes everything without it. To use one, get a free key at [etherscan.io/apis](https://etherscan.io/apis), copy `.env.example` to `.env` and set it.
 
 ## Structure
 
