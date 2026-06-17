@@ -6,9 +6,10 @@ __pycache__/
 # secrets
 .env
 
-# cached on-chain data (re-fetched on first run; never committed)
+# the decoded-log Parquet fixture in data/ is committed on purpose so the notebook runs offline
 
 data/*.json
+!data/transfers_*.meta.json
 
 
 # jupyter

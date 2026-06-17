@@ -13,6 +13,8 @@
 # ---
 
 # %% [markdown]
+# *Educational notes, tidied and shared freely. Illustrative, not production.*
+#
 # # Wallet Intelligence: On-Chain Data Engineering from Raw Logs
 #
 # **The whole notebook in one sentence: a blockchain is a public ledger that anyone can read, and once you can decode its receipts you can profile every wallet on it with nothing but free tools.** By the end you will have read live Ethereum data straight off a public node, decoded raw ERC-20 `Transfer` events (the standard "value moved" announcement a token emits) with their ABI, built a per-wallet feature table from scratch, and measured how concentrated a major token's flow really is.
@@ -1167,7 +1169,7 @@ else:
     print("Replicate across multiple non-overlapping windows before drawing conclusions.")
 
 # %% [markdown]
-# **What we infer.** If the Gini is stable across window sizes (the curve is flat), the concentration figure is a robust property of the token's ecosystem in this period, not an artefact of our 2,000-block choice. If the Gini varies substantially (the curve slopes), the window is too small to be representative and wider data is needed. Either outcome is informative: stability validates our headline number; instability teaches you to be cautious about short-window statistics.
+# **What we infer.** If the Gini is stable across window sizes (the curve is flat), the concentration figure is a stable property of the token's ecosystem in this period, not an artefact of our 2,000-block choice. If the Gini varies substantially (the curve slopes), the window is too small to be representative and wider data is needed. Either outcome is informative: stability validates our headline number; instability teaches you to be cautious about short-window statistics.
 #
 # > **Key takeaway.** Turn every caveat into a chart. A stability test costs one extra loop and turns "our window is small" from a footnote into a quantified, learnable result.
 

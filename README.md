@@ -30,7 +30,7 @@ Provided as is, for educational use, with no warranty.
 | `eth_getLogs` | the one filtered query the whole pipeline rests on, paginated safely for free nodes | §2 |
 | **ABI decoding** | pulling `from` / `to` out of indexed topics and `value` out of the data blob, by hand and with web3 | §2 |
 | A **per-wallet feature table** | collapsing transfer *edges* into one row per wallet: counts, volume, counterparties, lifespan, net flow | §3 |
-| **Holder concentration** | a Lorenz-style curve and a one-number summary of how few addresses move most of the token | §4 |
+| **Flow concentration** | a Lorenz-style curve and a one-number summary of how few addresses move most of the token | §4 |
 | **Behavioural views** | top senders, an activity heartbeat, and a sender-vs-receiver scatter that hints at wallet *roles* | §4 |
 
 Every one of these carries straight over to any token, any event, and any wider block range.
@@ -62,9 +62,9 @@ be **extremely concentrated**: the **top 1% of senders moved ~96% of all volume*
   USDC is busy enough that ~2000 blocks already yields ~200k transfers. We keep the window
   small so the whole notebook runs in a couple of minutes and stays polite to a free node.
 - The fetcher pulls and decodes the logs once and **caches the result to `data/` as Parquet**,
-  so re-runs are instant and work offline after the first fetch.
+  so re-runs are instant and run offline from the committed fixture.
 - An optional `ETHERSCAN_API_KEY` is noted for fetching verified ABIs or longer history, but
-  **nothing in this repo requires it** — the `Transfer` signature is a fixed standard, so we
+  **nothing in this repo requires it** -- the `Transfer` signature is a fixed standard, so we
   decode it ourselves.
 
 ## Run it
@@ -103,7 +103,7 @@ wallet-intelligence/
 │   ├── data.py     # keyless public-RPC helpers: connect, get_logs, decode_transfers, cache
 │   └── style.py    # shared house chart style (consistent look across the handbook)
 ├── assets/         # rendered charts (committed, so they show in this README)
-├── data/           # cached Parquet of decoded logs (gitignored, re-fetched on first run)
+├── data/           # decoded-log Parquet cache, committed so the notebook runs offline (delete to re-fetch)
 ├── requirements.txt
 └── .env.example
 ```
